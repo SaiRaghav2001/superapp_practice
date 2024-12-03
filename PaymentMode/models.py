@@ -1,6 +1,6 @@
 from django.db import models
 from CustomUser.models import Profile
-
+from ProductData.models import *
 # Create your models here.
 
 
@@ -96,3 +96,21 @@ class PayuBanksInfo(models.Model):
     class Meta:
         verbose_name = 'PAYU BANK INFO'
         verbose_name_plural = 'PAYU BANK INFO'
+        
+class Pricing(models.Model):
+    ACTIVE = 'Active'
+    INACTIVE = 'InActive'
+
+    STATUS_CHOICES = [
+        (ACTIVE, 'Active'),
+        (INACTIVE, 'InActive'),
+    ]
+    channel = models.ForeignKey(
+        Category, on_delete=models.CASCADE, blank=True, null=True, related_name='channel_pricing')
+    price = models.IntegerField(default=0, blank=True, null=True)
+    status = models.CharField(
+        max_length=50, choices=STATUS_CHOICES, default=ACTIVE)
+
+    class Meta:
+        verbose_name = 'SET ADVANCE'
+        verbose_name_plural = 'SET ADVANCE'		

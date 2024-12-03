@@ -47,8 +47,6 @@ class InsuranceAdmin(ImportExportModelAdmin, admin.ModelAdmin):
                     'fuel', 'reg_date', 'policy_expire_date', 'last_claim_status', 'claim_bonus', 'employee_id', 'referred_by', 'booked_at', 'booking_status']
     
 
-@admin.register(Pricing)
-class PricingAdmin(admin.ModelAdmin):
-    list_display = ["channel", "price", "status"] 
+ 
 
 

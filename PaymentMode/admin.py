@@ -24,3 +24,7 @@ class UserOwnedModesAdmin(ImportExportModelAdmin):
 @admin.register(PayuBanksInfo)
 class PayuBanksInfoAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ["bankName", "bankCode"]
+
+@admin.register(Pricing)
+class PricingAdmin(admin.ModelAdmin):
+    list_display = ["channel", "price", "status"]

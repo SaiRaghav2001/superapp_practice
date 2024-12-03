@@ -429,20 +429,3 @@ class UsedcarSellEnquiry(models.Model):
         verbose_name_plural = 'USED CAR - SELL'
 
 
-class Pricing(models.Model):
-    ACTIVE = 'Active'
-    INACTIVE = 'InActive'
-
-    STATUS_CHOICES = [
-        (ACTIVE, 'Active'),
-        (INACTIVE, 'InActive'),
-    ]
-    channel = models.ForeignKey(
-        Category, on_delete=models.CASCADE, blank=True, null=True, related_name='channel_pricing')
-    price = models.IntegerField(default=0, blank=True, null=True)
-    status = models.CharField(
-        max_length=50, choices=STATUS_CHOICES, default=ACTIVE)
-
-    class Meta:
-        verbose_name = 'SET ADVANCE'
-        verbose_name_plural = 'SET ADVANCE'
